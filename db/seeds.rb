@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.create(name:'João',email:'batman@gothan.com',score:'10000');
+User.create(name:'Henrique',email: '',score:'100');
+User.create(name:'Matheus',email: 'autism@intensifies',score:'');
+User.create(name:'Viana',email: 'trouxa@trouxao',score:'');
+User.create(name:'Nawe',email: 'sabe@nada',score:'');
