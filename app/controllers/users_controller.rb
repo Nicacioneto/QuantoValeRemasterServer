@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 skip_before_filter :verify_authenticity_token, :only => [:update]
 
   def create
-    @user = User.new(user_params);
-    @use.create;
+    User.create(user_params);
   end
 
   def show
