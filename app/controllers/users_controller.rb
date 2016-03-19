@@ -4,6 +4,7 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
 
   def create
     User.create(user_params);
+  #render json: User.all
   end
 
   def show
@@ -16,8 +17,9 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
     render json: @users
   end
 
+  private
   def user_params
-    params.require(:user).permit(:name,:email,:score)
+    params.require(:user).permit(:name , :email, :score)
   end
 
 end
