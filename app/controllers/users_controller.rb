@@ -3,8 +3,11 @@ class UsersController < ApplicationController
 skip_before_filter :verify_authenticity_token, :only => [:update]
 
   def create
-    User.create(user_params);
-  #render json: User.all
+    if (User.create(user_params).valid?)
+        puts ("true")
+      elsif
+        puts(" false")
+      end
   end
 
   def show
@@ -19,7 +22,7 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
 
   private
   def user_params
-    params.require(:user).permit(:name , :email, :score)
+    params.require(:user).permit(:name , :email, :score, :idFacebook)
   end
 
 end
