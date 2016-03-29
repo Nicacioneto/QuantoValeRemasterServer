@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identificadorContrato: MyString
+  uasg: MyString
+  modalidadeLicitacao: 
+  licitacaoAssociada: MyString
+  objeto: MyString
+  numeroAditivos: 1
+  numeroProcessos: 1
+  CPFContratada: MyString
+  dataAssinatura: MyString
+  fundamentoGeral: MyString
+  dataInicioVigencia: MyString
+  dataTerminoVigencia: MyString
+  valorInicial: MyString
+  aditivosContratos: MyString
+  eventosContratos: MyString
+
+two:
+  identificadorContrato: MyString
+  uasg: MyString
+  modalidadeLicitacao: 
+  licitacaoAssociada: MyString
+  objeto: MyString
+  numeroAditivos: 1
+  numeroProcessos: 1
+  CPFContratada: MyString
+  dataAssinatura: MyString
+  fundamentoGeral: MyString
+  dataInicioVigencia: MyString
+  dataTerminoVigencia: MyString
+  valorInicial: MyString
+  aditivosContratos: MyString
+  eventosContratos: MyString

@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324200434) do
+ActiveRecord::Schema.define(version: 20160329003348) do
+
+  create_table "contratos", force: :cascade do |t|
+    t.string   "identificadorContrato"
+    t.string   "uasg"
+    t.string   "modalidadeLicitacao"
+    t.string   "codigoContrato"
+    t.string   "licitacaoAssociada"
+    t.string   "objeto"
+    t.integer  "numeroAditivos"
+    t.string   "numeroProcessos"
+    t.string   "CPFContratada"
+    t.string   "dataAssinatura"
+    t.string   "fundamentoGeral"
+    t.string   "dataInicioVigencia"
+    t.string   "dataTerminoVigencia"
+    t.string   "valorInicial"
+    t.string   "aditivosContratos"
+    t.string   "eventosContratos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
