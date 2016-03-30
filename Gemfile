@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use has_secure_token to add security to model
+gem 'has_secure_token'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
