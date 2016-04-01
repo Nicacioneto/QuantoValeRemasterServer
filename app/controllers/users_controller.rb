@@ -40,7 +40,8 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
 
   private
   def user_params
-    params.require(:user).permit(:name , :email, :score, :idFacebook)
+    params.require(:user).permit(:name , :email, :score, :idFacebook, :password,
+      :password_confirmation)
   end
 
   private

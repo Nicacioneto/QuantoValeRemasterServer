@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330212921) do
+ActiveRecord::Schema.define(version: 20160401200727) do
 
   create_table "contratos", force: :cascade do |t|
     t.string   "identificadorContrato"
@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 20160330212921) do
     t.string   "name"
     t.string   "email"
     t.integer  "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "idFacebook"
     t.string   "token"
+    t.string   "password_digest"
   end
 
 end
