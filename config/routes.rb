@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'users#show'
   post 'users/create' => 'users#create'
   get  'users/show'  => 'users#show'
-  get  'users/login/:id'  => 'users#login'
+  get  'users/login/:email'  => 'users#login', :constraints => { :email => /[^\/]+/ }
   get  'users/ranking' => 'users#ranking'
 
   # The priority is based upon order of creation: first created -> highest priority.

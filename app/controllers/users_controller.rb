@@ -15,11 +15,11 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
   def login
     if(true)
           puts "Login"
-          render json: User.where(:id => params[:id])
+          render json: User.find_by_email(params[:email])
           puts "Login"
-          puts User.where(:email => params[:id] )
+          puts User.find_by_email(params[:email])
     elsif
-        render json: User.where(:email => params[:id])
+        render json: User.find_by_email(params[:email])
         puts "Erro"
     end
   end

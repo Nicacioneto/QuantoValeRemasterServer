@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
               format: {
                 with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
               }
+
+  def to_param
+    email
+  end
+
 end
