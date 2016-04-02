@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  attr_accessible :password, :email, :name, :idFacebook, :score
   has_secure_token
+  has_secure_password
 
   validates   :email,
               :on => :create,

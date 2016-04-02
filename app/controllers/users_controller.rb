@@ -14,10 +14,11 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
 
   def login
     if(true)
-          puts "Login"
-          render json: User.find_by_email(params[:email])
-          puts "Login"
-          puts User.find_by_email(params[:email])
+      user = User.find_by_email(params[:email])
+      if user && user.authenticate(params[:password])
+          session[:user_token] = user.token
+          render json: User.find_by(token: session[:user_token])
+      end
     elsif
         render json: User.find_by_email(params[:email])
         puts "Erro"
@@ -40,7 +41,8 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
 
   private
   def user_params
-    params.require(:user).permit(:name , :email, :score, :idFacebook)
+    params.require(:user).permit(:name , :email, :score, :idFacebook, :password,
+      :password_confirmation)
   end
 
   private
