@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  #initing routes 'contratos'
+  resource :contratos
+  #root :to => 'contratos#index'
+  get 'questoes/:id' => 'contratos#show'
+  get 'questoes/valores' => 'contratos#listAllContracts'
+  #finishing routes 'contratos'
 
   root 'users#show'
   post 'users/create' => 'users#create'
