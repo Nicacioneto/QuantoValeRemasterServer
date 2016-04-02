@@ -1,5 +1,4 @@
 class ContratosController < ApplicationController
-
   def index
        @contratos = Contrato.all
        render json:@contratos
@@ -33,7 +32,7 @@ class ContratosController < ApplicationController
   def applying_shuffle array_question
     return array_question.shuffle
   end
-  '''
+
   def generateRanking
 
       player = Player.all
@@ -42,9 +41,8 @@ class ContratosController < ApplicationController
 
       end
   end
-  '''
-  def service
 
+  def service
     @contrato = Contrato.find(params["id"])
     values_random = Array.new(3)
     value_true = Float(@contrato.valorInicial).round(0)
@@ -55,11 +53,11 @@ class ContratosController < ApplicationController
 
     return array_question = {"ask"=>@contrato.objeto.capitalize,
         "val"=>applying_shuffle(applying_flatten(merge(values_random, value_true))), "trueval"=>value_true}
+
   end
 
   def show
       #generateRanking()
       render json: service
   end
-
 end

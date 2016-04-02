@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   #initing routes 'contratos'
   resource :contratos
   #root :to => 'contratos#index'
-  get 'questões/valores' => 'contratos#listAllContracts'
+  get 'questoes/:id' => 'contratos#show'
+  get 'questoes/valores' => 'contratos#listAllContracts'
   #finishing routes 'contratos'
 
   root 'users#show'
