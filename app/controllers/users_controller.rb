@@ -13,21 +13,20 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
   end
 
   def login
-    if(true)
-      user = User.find_by_email(params[:email])
-      if user && user.authenticate(params[:password])
-          session[:user_token] = user.token
-          render json: User.find_by(token: session[:user_token])
-      end
-    elsif
-        render json: User.find_by_email(params[:email])
-        puts "Erro"
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_token] = user.token
+      render json: User.find_by(token: session[:user_token])
     end
   end
 
-
-
-
+  def update_score
+    user = User.find_by_email(params[:email])
+    if user.update(score_params) && user.authenticate(params[:token])
+      render json: User.find_by_email(params[:email])
+      puts 'Score atualizado'
+    end
+  end
 
   def show
     @users = User.all
@@ -48,6 +47,11 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
   private
   def login_params
     params.require(:user).permit(:email)
+  end
+
+  private
+  def score_params
+    params.require(:user).permit(:score)
   end
 
 end
