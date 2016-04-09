@@ -4,19 +4,24 @@ skip_before_filter :verify_authenticity_token, :only => [:update]
 
   def create
     if (User.create(user_params).valid?)
-          User.create(user_params)
-          puts "Delete"
+        User.create(user_params)
+        puts "Delete"
     elsif
-          User.find_by(email: user_params.email)
+        User.find_by(email: user_params.email)
         puts "Delete"
       end
   end
 
   def login
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_token] = user.token
-      render json: User.find_by(token: session[:user_token])
+    if !user.blank?
+      if user && user.authenticate(params[:password])
+        session[:user_token] = user.token
+        render json: User.find_by(token: session[:user_token])
+      end
+    else
+      user = User.create(user_params)
+      User.login(user)
     end
   end
 

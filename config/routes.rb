@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'users/create' => 'users#create'
   get  'users/show'  => 'users#show'
   get  'users/login/:email'  => 'users#login', :constraints => { :email => /[^\/]+/ }
+  post  'users/login/:email'  => 'users#login', :constraints => { :email => /[^\/]+/ }
   get  'users/ranking' => 'users#ranking'
   put  'users/update_score/:email' => 'users#update_score', :constraints => { :email => /[^\/]+/ }
 
