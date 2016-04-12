@@ -43,7 +43,7 @@ class ContratosController < ApplicationController
   end
 
   def service
-    @contrato = Contrato.find(params["id"])
+    @contrato = Contrato.find(params[:id])
     values_random = Array.new(3)
     value_true = Float(@contrato.valorInicial).round(0)
 
