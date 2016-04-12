@@ -22,11 +22,11 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
-# Envia o email e salva o momento q foi enviado 
+# Envia o email e salva o momento q foi enviado
   def send_password_reset
     generate_key(:password_reset_key)
     self.password_reset_sent_at = Time.zone.now
-    save!
+    save!(:validate => false)
     UserMailer.password_reset(self).deliver_now
   end
 

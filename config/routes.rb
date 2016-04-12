@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   get  'users/ranking' => 'users#ranking'
   put  'users/update_score/:email' => 'users#update_score', :constraints => { :email => /[^\/]+/ }
   post 'password_reset/create' => 'password_reset#create'
-  get  'password_reset/:email/edit'  => 'password_reset#edit', :constraints => { :email => /[^\/]+/ }
-  put  'password_reset/:email' => 'password_resets#update', :constraints => { :email => /[^\/]+/ }
+  get  'password_reset/:key/edit'  => 'password_reset#edit', :constraints => { :email => /[^\/]+/ }
+  patch  'password_reset/:key' => 'password_reset#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
