@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get  'users/login/:email'  => 'users#login', :constraints => { :email => /[^\/]+/ }
   post 'users/login/:email'  => 'users#login', :constraints => { :email => /[^\/]+/ }
   get  'users/ranking' => 'users#ranking'
-  put  'users/update_score/:email' => 'users#update_score', :constraints => { :email => /[^\/]+/ }
+  patch  'users/update_score/:email' => 'users#update_score', :constraints => { :email => /[^\/]+/ }
   post 'password_reset/create' => 'password_reset#create'
   get  'password_reset/:key/edit'  => 'password_reset#edit', :constraints => { :email => /[^\/]+/ }
   patch  'password_reset/:key' => 'password_reset#update'
