@@ -76,4 +76,23 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.gem "httparty"
+
+  # Default Mailer Host
+   Rails.application.routes.default_url_options[:host] = 'quantovaleplay.heroku'
+   config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    # Configurações de email para o gmail
+    :address        => 'smtp.gmail.com',
+    :domain         => 'quantovale.com',
+    :port           => 587,
+    :user_name      => 'quantovaleplay@gmail.com',
+    :password       => 'qtovaleplay2016',
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+  # Send email in development mode?
+  config.action_mailer.perform_deliveries = true
 end
